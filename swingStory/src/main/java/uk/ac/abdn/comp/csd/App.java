@@ -2,6 +2,7 @@ package uk.ac.abdn.comp.csd;
 import com.github.javafaker.*;
 import java.awt.BorderLayout;
 import javax.swing.*;
+import java.lang.StringBuilder;
 
 /**
  * Tell me a story
@@ -10,11 +11,25 @@ public class App
 {
     private static String story(){
     Faker faker = new Faker();
-    String name = faker.name().fullName();
-    String firstName = faker.name().firstName();
-    String lastName = faker.name().lastName();
-    String story = ( "Hello " + name + " " + firstName + " " + lastName );
-    return story;
+     StringBuilder story = new StringBuilder();
+     story.append("In a(n) ");
+     story.append(faker.hipster().word());
+     story.append(" ");
+     story.append(faker.job().field());
+     story.append(" a young ");
+     story.append(faker.hobbit().character());
+     story.append(" stumbles across a(n) ");
+     story.append(faker.ancient().primordial());
+     story.append(" which spurs them into conflict with ");
+     story.append(faker.starTrek().villain());
+     story.append(" and her ");
+     story.append(faker.hacker().noun());
+     story.append(" culminating in ");
+     story.append(faker.leagueOfLegends().summonerSpell());
+     story.append(" where someone shouts '");
+     story.append(faker.gameOfThrones().quote());
+     story.append("!'");
+     return story.toString();
     }
     private static void createAndShowGUI(){
         //Create and set up the window
