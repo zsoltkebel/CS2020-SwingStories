@@ -12,6 +12,10 @@ public class App
     private static String story(){
     Faker faker = new Faker();
      StringBuilder story = new StringBuilder();
+     story.append("One summer day of ");
+     story.append(convert(55));
+     story.append(" degrees celsius a(n) \n");
+     story.append(faker.hipster().word());
      story.append("In a(n) ");
      story.append(faker.hipster().word());
      story.append(" ");
@@ -31,6 +35,12 @@ public class App
      story.append("!'");
      return story.toString();
     }
+    
+    public static Integer convert(Integer temp){
+     Integer converted = (temp -32) * 5/9;
+     return converted;
+    }
+    
     private static void createAndShowGUI(){
         //Create and set up the window
         JFrame frame = new JFrame("Swing me a story");

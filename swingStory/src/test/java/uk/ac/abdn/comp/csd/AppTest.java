@@ -1,6 +1,6 @@
 package uk.ac.abdn.comp.csd;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -17,4 +17,10 @@ public class AppTest
     {
         assertTrue( true );
     }
+    @Test
+    public void shouldConvert() 
+    {
+        assertEquals(Integer.valueOf(100), App.convert(212));
+    }
+    
 }
