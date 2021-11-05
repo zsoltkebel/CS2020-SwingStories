@@ -15,17 +15,17 @@ public class App
      story.append("In a(n) ");
      story.append(faker.hipster().word());
      story.append(" ");
-     story.append(faker.job().field());
+     story.append(faker.job().field() + "\n");
      story.append(" a young ");
      story.append(faker.hobbit().character());
      story.append(" stumbles across a(n) ");
-     story.append(faker.ancient().primordial());
+     story.append(faker.ancient().primordial()  + "\n");
      story.append(" which spurs them into conflict with ");
      story.append(faker.starTrek().villain());
      story.append(" and her ");
-     story.append(faker.hacker().noun());
+     story.append(faker.hacker().noun()  + "\n");
      story.append(" culminating in ");
-     story.append(faker.leagueOfLegends().summonerSpell());
+     story.append(faker.leagueOfLegends().summonerSpell()  + "\n");
      story.append(" where someone shouts '");
      story.append(faker.gameOfThrones().quote());
      story.append("!'");
@@ -36,13 +36,14 @@ public class App
         JFrame frame = new JFrame("Swing me a story");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         String story = story();
-        
+
         //Add the labels
         JLabel introLabel = new JLabel("The story is: ");
-        JLabel storyLabel = new JLabel(story);
+        JTextPane storyPane = new JTextPane();
+        storyPane.setText(story);
         frame.getContentPane().add(introLabel, BorderLayout.PAGE_START);
-        frame.getContentPane().add(storyLabel, BorderLayout.LINE_START);
-        
+        frame.getContentPane().add(storyPane, BorderLayout.LINE_START);
+
         //Display the window.
         frame.setSize(400,300);
         frame.setVisible(true);
