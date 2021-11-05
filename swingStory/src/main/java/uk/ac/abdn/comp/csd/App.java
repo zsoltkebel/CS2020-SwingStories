@@ -7,49 +7,53 @@ import java.lang.StringBuilder;
 /**
  * Tell me a story
  */
-public class App
-{
-    private static String story(){
-    Faker faker = new Faker();
-     StringBuilder story = new StringBuilder();
-     story.append("One summer day of ");
-     story.append(convert(55));
-     story.append(" degrees celsius a(n) \n");
-     story.append(faker.hipster().word());
-     story.append("In a(n) ");
-     story.append(faker.hipster().word());
-     story.append(" ");
-     story.append(faker.job().field() + "\n");
-     story.append(" a young ");
-     story.append(faker.hobbit().character());
-     story.append(" stumbles across a(n) ");
-     story.append(faker.ancient().primordial()  + "\n");
-     story.append(" which spurs them into conflict with ");
-     story.append(faker.starTrek().villain());
-     story.append(" and her ");
-     story.append(faker.hacker().noun()  + "\n");
-     story.append(" culminating in ");
-     story.append(faker.leagueOfLegends().summonerSpell()  + "\n");
-     story.append(" where someone shouts '");
-     story.append(faker.gameOfThrones().quote());
-     story.append("!'");
-     return story.toString();
+public class App {
+
+    protected static JTextField tempField;
+    protected static JButton newStory;
+    protected static JTextPane storyPane = new JTextPane();
+    protected static String story;
+
+    private static String story(Integer temp) {
+        Faker faker = new Faker();
+        StringBuilder story = new StringBuilder();
+        story.append("One summer day of ");
+        story.append(convert(temp));
+        story.append(" degrees celsius a(n) \n");
+        story.append(faker.hipster().word());
+        story.append("In a(n) ");
+        story.append(faker.hipster().word());
+        story.append(" ");
+        story.append(faker.job().field() + "\n");
+        story.append(" a young ");
+        story.append(faker.hobbit().character());
+        story.append(" stumbles across a(n) ");
+        story.append(faker.ancient().primordial()  + "\n");
+        story.append(" which spurs them into conflict with ");
+        story.append(faker.starTrek().villain());
+        story.append(" and her ");
+        story.append(faker.hacker().noun()  + "\n");
+        story.append(" culminating in ");
+        story.append(faker.leagueOfLegends().summonerSpell()  + "\n");
+        story.append(" where someone shouts '");
+        story.append(faker.gameOfThrones().quote());
+        story.append("!'");
+        return story.toString();
     }
-    
-    public static Integer convert(Integer temp){
-     Integer converted = (temp -32) * 5/9;
-     return converted;
+
+    public static Integer convert(Integer temp) {
+        Integer converted = (temp -32) * 5/9;
+        return converted;
     }
-    
+
     private static void createAndShowGUI(){
         //Create and set up the window
         JFrame frame = new JFrame("Swing me a story");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        String story = story();
+        String story = story(55);
 
         //Add the labels
         JLabel introLabel = new JLabel("The story is: ");
-        JTextPane storyPane = new JTextPane();
         storyPane.setText(story);
         frame.getContentPane().add(introLabel, BorderLayout.PAGE_START);
         frame.getContentPane().add(storyPane, BorderLayout.LINE_START);
